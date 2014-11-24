@@ -73,7 +73,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          open: true,
+          open: false,
           middleware: function (connect) {
             return [
               connect.static('.tmp'),
@@ -177,14 +177,14 @@ module.exports = function (grunt) {
       dist: {
         expand: true,
         cwd: '<%= yeoman.app %>',
-        src: '<%= yeoman.app %>/styles/{,*/}*.less',
+        src: 'styles/{,*/}*.less',
         ext: '.css',
         dest: '.tmp'
       },
       server: {
         expand: true,
         cwd: '<%= yeoman.app %>',
-        src: '<%= yeoman.app %>/styles/{,*/}*.less',
+        src: 'styles/{,*/}*.less',
         ext: '.css',
         dest: '.tmp'
       }

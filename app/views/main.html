@@ -1,23 +1,53 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div class="container" ng-controller="BinCtrl">
+  <form class="row form-horizontal" role="form">
+    <div class="form-group">
+      <label for="inputNormalHex" class="col-md-3 control-label">Normal HEX</label>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="inputNormalHex" placeholder="" ng-model="data">
+      </div>
+    </div>
+  </form>
+  <form class="row form-horizontal" role="form">
+    <div class="form-group">
+      <label for="inputCompactHex" class="col-md-3 control-label">Compact HEX</label>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="inputCompactHex" placeholder="" value="{{data | decodeUnicode}}">
+      </div>
+    </div>
+  </form>
+  <form class="row form-horizontal" role="form" ng-submit="encodeUtf8String()">
+    <div class="form-group">
+      <label for="inputUtf8String" class="col-md-3 control-label">UTF-8 String</label>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+      <div class="col-md-9">
+        <input type="text"
+               class="form-control"
+               id="inputUtf8String"
+               placeholder=""
+               ng-model="utf8String"
+               value="{{data | decodeUtf8}}">
+      </div>
+    </div>
+  </form>
+  <form class="row form-horizontal" role="form" ng-submit="encodeUnicodeString()">
+    <div class="form-group">
+      <label for="inputUnicodeString" class="col-md-3 control-label">Unicode String</label>
+
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="inputUnicodeString" placeholder=""  value="{{data | decodeUnicode}}" ng-model="data">
+      </div>
+    </div>
+  </form>
+
+  <form class="row form-horizontal" role="form" ng-submit="doneEditing()">
+    <div class="form-group">
+      <label for="inputUnicodeString" class="col-md-3 control-label">Unicode String</label>
+
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="inputUnicodeString" placeholder=""  value="{{data | decodeUnicode}}" ng-model="data">
+      </div>
+    </div>
+  </form>
 </div>
