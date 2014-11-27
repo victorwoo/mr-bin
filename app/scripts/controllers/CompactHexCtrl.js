@@ -1,12 +1,11 @@
 /**
  * Created by Victor on 2014/11/27.
  */
+
 angular.module('mrbinApp').controller('CompactHexCtrl', ['$scope', function ($scope) {
   'use strict';
 
-  $scope.$watch('data.raw', function () {
-    console.log('data.raw @CompactHexCtrl');
-
+  var formatCompactHex = function () {
     var raw = $scope.data.raw,
       compactHex = '',
       hexChar;
@@ -16,6 +15,11 @@ angular.module('mrbinApp').controller('CompactHexCtrl', ['$scope', function ($sc
       compactHex += (hexChar < 10 ? '0' + hexChar : hexChar);
     }
     $scope.data.compactHex = compactHex.trim();
+  };
+
+  $scope.$watch('data.raw', function () {
+    console.log('data.raw @CompactHexCtrl');
+    formatCompactHex();
   });
 
   $scope.submitCompactHex = function () {
@@ -44,7 +48,11 @@ angular.module('mrbinApp').controller('CompactHexCtrl', ['$scope', function ($sc
       });
 
       raw = String.fromCharCode.apply(null, raw);
-      $scope.data.raw = raw;
+      if ($scope.data.raw === raw) {
+        formatCompactHex();
+      } else {
+        $scope.data.raw = raw;
+      }
     } catch (e) {
       console.warn(e);
     }

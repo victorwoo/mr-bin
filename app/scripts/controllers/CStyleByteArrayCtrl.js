@@ -7,9 +7,7 @@
 angular.module('mrbinApp').controller('CStyleByteArrayCtrl', ['$scope', function ($scope) {
   'use strict';
 
-  $scope.$watch('data.raw', function () {
-    console.log('data.raw @CStyleByteArrayCtrl');
-
+  var formatCStyleByteArray = function(){
     var raw = $scope.data.raw,
       cStyleByteArray = '',
       hexChar;
@@ -24,6 +22,11 @@ angular.module('mrbinApp').controller('CStyleByteArrayCtrl', ['$scope', function
     }
 
     $scope.data.cStyleByteArray = 'byte[' + raw.length + '] { ' + cStyleByteArray + ' }';
+  };
+
+  $scope.$watch('data.raw', function () {
+    console.log('data.raw @CStyleByteArrayCtrl');
+formatCStyleByteArray();
   });
 
   $scope.submitCStyleByteArray = function () {
@@ -32,7 +35,7 @@ angular.module('mrbinApp').controller('CStyleByteArrayCtrl', ['$scope', function
     var cStyleByteArray = $scope.data.cStyleByteArray,
       raw = [];
     try {
-      var pattern = /^byte\[\d+\]\s*\{((\s*0x[0-9a-fA-F]{2},?)*)\s*\}$/m;
+      var pattern = /^byte\[\d*\]\s*\{((\s*0x[0-9a-fA-F]{2},?)*)\s*\}$/m;
       var match = pattern.exec(cStyleByteArray);
       if (match !== null) {
         cStyleByteArray = match[1];
@@ -42,7 +45,11 @@ angular.module('mrbinApp').controller('CStyleByteArrayCtrl', ['$scope', function
 
       raw = cStyleByteArray.match(/0x[0-9a-fA-F]{2}/mg);
       raw = String.fromCharCode.apply(null, raw);
-      $scope.data.raw = raw;
+      if ($scope.data.raw === raw) {
+        formatCStyleByteArray();
+      }else {
+        $scope.data.raw = raw;
+      }
     } catch (e) {
       console.warn(e);
     }

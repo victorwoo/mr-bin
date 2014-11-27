@@ -4,9 +4,7 @@
 angular.module('mrbinApp').controller('NormalHexCtrl', ['$scope', function ($scope) {
   'use strict';
 
-  $scope.$watch('data.raw', function () {
-    console.log('data.raw @NormalHexCtrl');
-
+  var formatNormalHex = function() {
     var raw = $scope.data.raw,
       normalHex = '',
       hexChar;
@@ -15,6 +13,11 @@ angular.module('mrbinApp').controller('NormalHexCtrl', ['$scope', function ($sco
       normalHex += (hexChar < 10 ? '0' + hexChar : hexChar) + ' ';
     }
     $scope.data.normalHex = normalHex.trim();
+  };
+
+  $scope.$watch('data.raw', function () {
+    console.log('data.raw @NormalHexCtrl');
+    formatNormalHex();
   });
 
   $scope.submitNormalHex = function () {
@@ -41,7 +44,12 @@ angular.module('mrbinApp').controller('NormalHexCtrl', ['$scope', function ($sco
       });
 
       raw = String.fromCharCode.apply(null, raw);
-      $scope.data.raw = raw;
+      if ($scope.data.raw === raw) {
+        formatNormalHex();
+      } else {
+        $scope.data.raw = raw;
+      }
+
     } catch (e) {
       console.warn(e);
     }

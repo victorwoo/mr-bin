@@ -4,7 +4,7 @@
       <label for="inputNormalHex" class="col-md-3 control-label">Normal HEX</label>
 
       <div class="col-md-9">
-        <input type="text" class="form-control" id="inputNormalHex" placeholder="Normal Hex Data Here" ng-model="data.normalHex">
+        <input type="text" class="form-control" id="inputNormalHex" placeholder="61 62 63" ng-model="data.normalHex">
       </div>
     </div>
   </form>
@@ -13,17 +13,17 @@
       <label for="inputCompactHex" class="col-md-3 control-label">Compact HEX</label>
 
       <div class="col-md-9">
-        <input type="text" class="form-control" id="inputCompactHex" placeholder="Compact Hex Data Here" ng-model="data.compactHex">
+        <input type="text" class="form-control" id="inputCompactHex" placeholder="616263" ng-model="data.compactHex">
       </div>
     </div>
   </form>
 
-  <form class="row form-horizontal" role="form" ng-controller="CStyleHexCtrl" ng-submit="submitCStyleHex()">
+  <form class="row form-horizontal" role="form" ng-controller="CStyleByteArrayCtrl" ng-submit="submitCStyleByteArray()">
     <div class="form-group">
-      <label for="inputCStyleHex" class="col-md-3 control-label">C-Style Byte Array</label>
+      <label for="inputCStyleByteArray" class="col-md-3 control-label">C-Style Byte Array</label>
 
       <div class="col-md-9">
-        <input type="text" class="form-control" id="inputCStyleHex" placeholder="CStyle Hex Data Here" ng-model="data.cStyleHex">
+        <input type="text" class="form-control" id="inputCStyleByteArray" placeholder="byte[3] { 0x61, 0x62, 0x63 }" ng-model="data.cStyleByteArray">
       </div>
     </div>
   </form>
