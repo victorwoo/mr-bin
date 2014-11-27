@@ -13,7 +13,9 @@ function h2d(h) {
 
 angular.module('mrbinApp').controller('BinCtrl', ['$scope', function ($scope) {
   'use strict';
-  $scope.data = [49, 50];
+  $scope.data = {
+    raw : 'abc' //[0x31, 0x41, 0x61]
+  };
 
   $scope.encodeUtf8String = function () {
     console.log($scope.utf8String);

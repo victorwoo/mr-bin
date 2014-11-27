@@ -1,52 +1,29 @@
 <div class="container" ng-controller="BinCtrl">
-  <form class="row form-horizontal" role="form">
+  <form class="row form-horizontal" role="form" ng-controller="NormalHexCtrl" ng-submit="submitNormalHex()">
     <div class="form-group">
       <label for="inputNormalHex" class="col-md-3 control-label">Normal HEX</label>
 
       <div class="col-md-9">
-        <input type="text" class="form-control" id="inputNormalHex" placeholder="" ng-model="data">
+        <input type="text" class="form-control" id="inputNormalHex" placeholder="Normal Hex Data Here" ng-model="data.normalHex">
       </div>
     </div>
   </form>
-  <form class="row form-horizontal" role="form">
+  <form class="row form-horizontal" role="form" ng-controller="CompactHexCtrl" ng-submit="submitCompactHex()">
     <div class="form-group">
       <label for="inputCompactHex" class="col-md-3 control-label">Compact HEX</label>
 
       <div class="col-md-9">
-        <input type="text" class="form-control" id="inputCompactHex" placeholder="" value="{{data | decodeUnicode}}">
-      </div>
-    </div>
-  </form>
-  <form class="row form-horizontal" role="form" ng-submit="encodeUtf8String()">
-    <div class="form-group">
-      <label for="inputUtf8String" class="col-md-3 control-label">UTF-8 String</label>
-
-      <div class="col-md-9">
-        <input type="text"
-               class="form-control"
-               id="inputUtf8String"
-               placeholder=""
-               ng-model="utf8String"
-               value="{{data | decodeUtf8}}">
-      </div>
-    </div>
-  </form>
-  <form class="row form-horizontal" role="form" ng-submit="encodeUnicodeString()">
-    <div class="form-group">
-      <label for="inputUnicodeString" class="col-md-3 control-label">Unicode String</label>
-
-      <div class="col-md-9">
-        <input type="text" class="form-control" id="inputUnicodeString" placeholder=""  value="{{data | decodeUnicode}}" ng-model="data">
+        <input type="text" class="form-control" id="inputCompactHex" placeholder="Compact Hex Data Here" ng-model="data.compactHex">
       </div>
     </div>
   </form>
 
-  <form class="row form-horizontal" role="form" ng-submit="doneEditing()">
+  <form class="row form-horizontal" role="form" ng-controller="CStyleHexCtrl" ng-submit="submitCStyleHex()">
     <div class="form-group">
-      <label for="inputUnicodeString" class="col-md-3 control-label">Unicode String</label>
+      <label for="inputCStyleHex" class="col-md-3 control-label">C-Style Byte Array</label>
 
       <div class="col-md-9">
-        <input type="text" class="form-control" id="inputUnicodeString" placeholder=""  value="{{data | decodeUnicode}}" ng-model="data">
+        <input type="text" class="form-control" id="inputCStyleHex" placeholder="CStyle Hex Data Here" ng-model="data.cStyleHex">
       </div>
     </div>
   </form>
