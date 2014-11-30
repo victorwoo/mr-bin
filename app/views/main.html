@@ -29,21 +29,30 @@
     </div>
   </form>
 
-  <form class="row form-horizontal" role="form" ng-controller="HexMapCtrl">
+  <form class="row form-horizontal" role="form" ng-controller="CStyleStringCtrl" ng-submit="submitCStyleString()">
     <div class="form-group">
-      <label for="wellHexMap" class="col-md-3 control-label">Hex Map</label>
+      <label for="inputCStyleString" class="col-md-3 control-label">C-Style String</label>
 
       <div class="col-md-9">
-        <!--<div class="well" id="wellHexMap"></div>-->
-        <pre class="well" id="wellHexMap">{{data.hexMap}}</pre>
-        <!--<input type="text" class="form-control" id="wellHexMap" placeholder="byte[3] { 0x61, 0x62, 0x63 }"-->
-        <!--ng-model="data.cStyleByteArray">-->
+        <input type="text" class="form-control" id="inputCStyleString" placeholder='"\x61\x62\x63"'
+               ng-model="data.cStyleString">
       </div>
     </div>
   </form>
 
-  <form class="row form-horizontal" role="form" ng-controller="Utf8StringCtrl"  ng-submit="submitUtf8String()">
-    <div class="from-group">
+  <form class="row form-horizontal" role="form" ng-controller="Iso88591StringCtrl" ng-submit="submitIso88591String()">
+    <div class="form-group">
+      <label for="inputIso88591String" class="col-md-3 control-label">ISO 8859-1 String</label>
+
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="inputIso88591String" placeholder=""
+               ng-model="data.iso88591String">
+      </div>
+    </div>
+  </form>
+
+  <form class="row form-horizontal" role="form" ng-controller="Utf8StringCtrl" ng-submit="submitUtf8String()">
+    <div class="form-group">
       <label class="col-md-3 control-label" for="inputUtf8String">UTF-8 String</label>
 
       <div class="col-md-9">
@@ -53,13 +62,12 @@
     </div>
   </form>
 
-  <form class="row form-horizontal" role="form" ng-controller="UnicodeStringCtrl" ng-submit="submitUnicodeString()">
-    <div class="from-group">
-      <label class="col-md-3 control-label" for="inputUnicodeString">Unicode String</label>
+  <form class="row form-horizontal" role="form" ng-controller="HexMapCtrl">
+    <div class="form-group">
+      <label for="wellHexMap" class="col-md-3 control-label">Hex Map</label>
 
       <div class="col-md-9">
-        <input type="text" class="form-control" id="inputUnicodeString" placeholder=""
-               ng-model="data.unicodeString">
+        <pre class="well" id="wellHexMap">{{data.hexMap}}</pre>
       </div>
     </div>
   </form>

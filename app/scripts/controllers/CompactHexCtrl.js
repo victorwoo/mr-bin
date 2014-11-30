@@ -11,7 +11,7 @@ angular.module('mrbinApp').controller('CompactHexCtrl', ['$scope', function ($sc
       hexChar;
 
     for (var i = 0; i < raw.length; i++) {
-      hexChar = raw.charCodeAt(i).toString(16);
+      hexChar = raw.charCodeAt(i).toString(16).toUpperCase();
       compactHex += (hexChar < 10 ? '0' + hexChar : hexChar);
     }
     $scope.data.compactHex = compactHex.trim();

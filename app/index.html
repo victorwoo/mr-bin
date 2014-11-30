@@ -71,10 +71,13 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/text-encoding/lib/encoding.js"></script>
+    <script src="bower_components/text-encoding/lib/encoding-indexes.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/libs/polyfill.js"></script>
     <script src="scripts/libs/bundle.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/global.js"></script>
@@ -84,8 +87,9 @@
     <script src="scripts/controllers/NormalHexCtrl.js"></script>
     <script src="scripts/controllers/CompactHexCtrl.js"></script>
     <script src="scripts/controllers/CStyleByteArrayCtrl.js"></script>
+    <script src="scripts/controllers/CStyleStringCtrl.js"></script>
     <script src="scripts/controllers/HexMapCtrl.js"></script>
-    <script src="scripts/controllers/UnicodeStringCtrl.js"></script>
+    <script src="scripts/controllers/Iso88591Ctrl.js"></script>
     <script src="scripts/controllers/Utf8StringCtrl.js"></script>
     <!-- endbuild -->
 </body>

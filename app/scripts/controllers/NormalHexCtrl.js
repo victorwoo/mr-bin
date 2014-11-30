@@ -9,7 +9,7 @@ angular.module('mrbinApp').controller('NormalHexCtrl', ['$scope', function ($sco
       normalHex = '',
       hexChar;
     for (var i = 0; i < raw.length; i++) {
-      hexChar = raw.charCodeAt(i).toString(16);
+      hexChar = raw.charCodeAt(i).toString(16).toUpperCase();
       normalHex += (hexChar < 10 ? '0' + hexChar : hexChar) + ' ';
     }
     $scope.data.normalHex = normalHex.trim();

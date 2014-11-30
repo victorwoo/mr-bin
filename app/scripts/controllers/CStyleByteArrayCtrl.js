@@ -7,17 +7,17 @@
 angular.module('mrbinApp').controller('CStyleByteArrayCtrl', ['$scope', function ($scope) {
   'use strict';
 
-  var formatCStyleByteArray = function(){
+  var formatCStyleByteArray = function () {
     var raw = $scope.data.raw,
       cStyleByteArray = '',
       hexChar;
 
     for (var i = 0; i < raw.length; i++) {
       hexChar = raw.charCodeAt(i).toString(16);
-      cStyleByteArray += '0x' + (hexChar < 10 ? '0' + hexChar : hexChar) + ', ';
+      cStyleByteArray += '0x' + (hexChar < 10 ? '0' + hexChar : hexChar).toUpperCase() + ', ';
     }
 
-    if(cStyleByteArray.endsWith(', ')){
+    if (cStyleByteArray.endsWith(', ')) {
       cStyleByteArray = cStyleByteArray.substr(0, cStyleByteArray.length - 2);
     }
 
@@ -26,7 +26,7 @@ angular.module('mrbinApp').controller('CStyleByteArrayCtrl', ['$scope', function
 
   $scope.$watch('data.raw', function () {
     console.log('data.raw @CStyleByteArrayCtrl');
-formatCStyleByteArray();
+    formatCStyleByteArray();
   });
 
   $scope.submitCStyleByteArray = function () {
@@ -47,7 +47,7 @@ formatCStyleByteArray();
       raw = String.fromCharCode.apply(null, raw);
       if ($scope.data.raw === raw) {
         formatCStyleByteArray();
-      }else {
+      } else {
         $scope.data.raw = raw;
       }
     } catch (e) {
