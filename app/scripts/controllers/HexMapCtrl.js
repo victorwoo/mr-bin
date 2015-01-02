@@ -5,14 +5,17 @@ angular.module('mrbinApp').controller('HexMapCtrl', ['$scope', function ($scope)
   'use strict';
 
   var formatHexMap = function () {
-    var Buffer = require('buffer').Buffer,
-      hex = require('hex'),
-      buffer,
-      hexMap;
-    buffer = new Buffer($scope.data.raw, 'utf8');
-    console.log(buffer);
-    hexMap = hex(buffer);
-    console.log(hexMap);
+      var hex = require('hex'),
+      hexMap,
+      raw = $scope.data.raw,
+      data = [],
+      i;
+    for (i = 0; i < raw.length; i++) {
+      data.push(raw.charCodeAt(i));
+    }
+
+    console.log(data);
+    hexMap = hex(data);
     $scope.data.hexMap =hexMap;
   };
 
