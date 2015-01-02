@@ -1,7 +1,10 @@
 {
   "name": "mrbin",
   "version": "0.0.0",
-  "repository": "https://github.com/victorwoo/mr-bin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victorwoo/mr-bin"
+  },
   "dependencies": {
     "hex": "0.0.1"
   },
@@ -33,12 +36,24 @@
     "time-grunt": "^0.3.1",
     "karma-jasmine": "^0.3.0",
     "grunt-karma": "^0.9.0",
-    "karma-phantomjs-launcher": "^0.1.4"
+    "karma-phantomjs-launcher": "^0.1.4",
+    "iconv-lite": "^0.4.5"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "description": "Mr.Bin\r ======",
+  "bugs": {
+    "url": "https://github.com/victorwoo/mr-bin/issues"
+  },
+  "homepage": "https://github.com/victorwoo/mr-bin",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
 }

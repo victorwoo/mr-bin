@@ -5,12 +5,10 @@ angular.module('mrbinApp').controller('Utf8StringCtrl', ['$scope', function ($sc
   'use strict';
 
   var formatUtf8String = function () {
-    var raw = $scope.data.raw;
-    var bytes = raw.split('').map(function (element){
-      return element.charCodeAt(0);
-    });
-    bytes = new Uint8Array(bytes);
-    $scope.data.utf8String = new TextDecoder('utf-8').decode(bytes);
+    var iconv = require('iconv-lite'),
+      raw = $scope.data.raw;
+
+    $scope.data.utf8String = iconv.decode(iconv.encode(raw, 'latin1'), 'utf8');
   };
 
   $scope.$watch('data.raw', function () {
@@ -18,12 +16,7 @@ angular.module('mrbinApp').controller('Utf8StringCtrl', ['$scope', function ($sc
   });
 
   $scope.submitUtf8String = function () {
-    console.log('submitUtf8String()');
-    var bytes, chars = [];
-    bytes = new TextEncoder('utf-8').encode($scope.data.utf8String);
-    for (var i = 0; i < bytes.byteLength; i++){
-      chars.push(String.fromCharCode(bytes[i]));
-    }
-    $scope.data.raw = chars.join('');
+    var iconv = require('iconv-lite');
+    $scope.data.raw = iconv.decode(iconv.encode($scope.data.utf8String, 'utf8'), 'latin1');
   };
 }]);
