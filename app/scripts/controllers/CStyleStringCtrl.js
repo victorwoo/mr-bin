@@ -21,7 +21,6 @@ angular.module('mrbinApp').controller('CStyleStringCtrl', ['$scope', function ($
   };
 
   $scope.$watch('data.raw', function () {
-    console.log('data.raw @CStyleStringCtrl');
     formatCStyleString();
   });
 

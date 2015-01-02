@@ -9,14 +9,14 @@ angular.module('mrbinApp').controller('HexMapCtrl', ['$scope', function ($scope)
       hex = require('hex'),
       buffer,
       hexMap;
-    buffer = new Buffer($scope.data.raw);
+    buffer = new Buffer($scope.data.raw, 'utf8');
+    console.log(buffer);
     hexMap = hex(buffer);
     console.log(hexMap);
     $scope.data.hexMap =hexMap;
   };
 
   $scope.$watch('data.raw', function () {
-    console.log('data.raw @CStyleByteArrayCtrl');
     formatHexMap();
   });
 }]);

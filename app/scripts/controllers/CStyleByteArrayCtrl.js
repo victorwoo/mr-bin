@@ -25,7 +25,6 @@ angular.module('mrbinApp').controller('CStyleByteArrayCtrl', ['$scope', function
   };
 
   $scope.$watch('data.raw', function () {
-    console.log('data.raw @CStyleByteArrayCtrl');
     formatCStyleByteArray();
   });
 

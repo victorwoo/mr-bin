@@ -16,7 +16,6 @@ angular.module('mrbinApp').controller('NormalHexCtrl', ['$scope', function ($sco
   };
 
   $scope.$watch('data.raw', function () {
-    console.log('data.raw @NormalHexCtrl');
     formatNormalHex();
   });
 

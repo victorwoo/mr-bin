@@ -10,7 +10,6 @@ angular.module('mrbinApp').controller('Iso88591StringCtrl', ['$scope', function 
   };
 
   $scope.$watch('data.raw', function () {
-    console.log('data.raw @Iso88591StringCtrl');
     formatIso88591String();
   });
 

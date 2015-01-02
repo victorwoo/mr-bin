@@ -18,7 +18,6 @@ angular.module('mrbinApp').controller('CompactHexCtrl', ['$scope', function ($sc
   };
 
   $scope.$watch('data.raw', function () {
-    console.log('data.raw @CompactHexCtrl');
     formatCompactHex();
   });
 

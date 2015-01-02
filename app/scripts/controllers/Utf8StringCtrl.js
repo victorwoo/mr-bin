@@ -14,7 +14,6 @@ angular.module('mrbinApp').controller('Utf8StringCtrl', ['$scope', function ($sc
   };
 
   $scope.$watch('data.raw', function () {
-    console.log('data.raw @Utf8StringCtrl');
     formatUtf8String();
   });
 

@@ -3,7 +3,7 @@
  */
 angular.module('mrbinApp').filter('decodeUtf8', function () {
   'use strict';
-  var filter = function(input){
+  var filter = function(){
     //return uintToString(input);
     return 'decodeUtf8Filter';
   };
