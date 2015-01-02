@@ -1,6 +1,7 @@
 {
   "name": "mrbin",
   "version": "0.0.0",
+  "repository": "https://github.com/victorwoo/mr-bin",
   "dependencies": {
     "hex": "0.0.1"
   },
